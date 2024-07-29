@@ -1,3 +1,4 @@
+using CourseApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseApp.Controllers{
@@ -6,6 +7,11 @@ namespace CourseApp.Controllers{
             return View();
         }
         public IActionResult Apply(){
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Apply([FromForm]Candidate candidate){
             return View();
         }
     }
