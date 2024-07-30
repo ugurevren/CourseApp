@@ -3,22 +3,25 @@
     Apply
 </div>
 
-<form method = "post" action="/course/apply">
-    <div class = "form-control my-2">
-        <label>Email</label>
-        <input name= "Email" class = "form-control"|>
+<form method="post" asp-action="Apply">
+    <div class="form-control my-2">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" |>
+        <span asp-validation-for="Email" class="text-danger"></span>
     </div>
-    <div class = "form-control my-2">
-        <label>First Name</label>
-        <input name= "FirstName" class = "form-control"|>
+    <div class="form-control my-2">
+        <label asp-for="FirstName">First Name</label>
+        <input asp-for="FirstName" class="form-control" |>
+        <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
-    <div class = "form-control my-2">
-        <label>Last Name</label>
-        <input name= "LastName" class = "form-control"|>
+    <div class="form-control my-2">
+        <label asp-for="LastName">Last Name</label>
+        <input asp-for="LastName" class="form-control" |>
+        <span asp-validation-for="LastName" class="text-danger"></span>
     </div>
-    <div class = "form-group my-2">
-        <label>Age</label>
-        <select name="Age" class = "form-control"|>
+    <div class="form-group my-2">
+        <label asp-for="Age">Age</label>
+        <select asp-for="Age" class="form-control" |>
             <option value="17">under 18</option>
             <option value="18">18</option>
             <option value="19">19</option>
@@ -31,27 +34,29 @@
     </div>
     <div>
         <fieldset>
+
             <legend>Select One Course</legend>
+            <span asp-validation-for="SelectedCourse" class="text-danger"></span>
             <p>
-                <input id="mvc" type="radio" name ="SelectedCourse" value="ASP.NET Core MVC"|>
+                <input id="mvc" type="radio" asp-for="SelectedCourse" value="ASP.NET Core MVC" |>
                 <label>ASP.NET Core MVC</label>
             </p>
             <p>
-                <input id="game" type="radio" name ="SelectedCourse" value="Game Development"|>
+                <input id="game" type="radio" asp-for="SelectedCourse" value="Game Development" |>
                 <label>Game Development</label>
             </p>
             <p>
-                <input id="java" type="radio" name ="SelectedCourse" value="Programing with Java"|>
+                <input id="java" type="radio" asp-for="SelectedCourse" value="Programing with Java" |>
                 <label>Programing with Java</label>
             </p>
             <p>
-                <input id="csharp" type="radio" name ="SelectedCourse" value="Programing with C#"|>
+                <input id="csharp" type="radio" asp-for="SelectedCourse" value="Programing with C#" |>
                 <label>Programing with C# </label>
             </p>
         </fieldset>
     </div>
     <div>
         <button class="btn btn-primary" type="submit">Apply</button>
-        <a class = "btn btn-warning" href="/">Home</a>
+        <a class="btn btn-warning" asp-controller="Home" asp-action="Index">Home</a>
     </div>
 </form>
