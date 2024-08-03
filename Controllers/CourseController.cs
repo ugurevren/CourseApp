@@ -7,7 +7,8 @@ namespace CourseApp.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var model = Repository.Candidates;
+            return View(model);
         }
         public IActionResult Apply()
         {
@@ -21,14 +22,13 @@ namespace CourseApp.Controllers
             {
                 return View();
             }
-            if (Repository.Candidates.Any(c=>c.Email == candidate.Email))
+            if (Repository.Candidates.Any(c => c.Email == candidate.Email))
             {
                 ModelState.AddModelError("Email", "You have already applied!");
                 return View();
             }
-
             Repository.Add(candidate);
-            return View("Feedback",candidate);
+            return View("Feedback", candidate);
         }
 
     }
